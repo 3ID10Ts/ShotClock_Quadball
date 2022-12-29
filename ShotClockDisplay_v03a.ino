@@ -72,6 +72,9 @@ const int pin_BuzzB      = 12;                        // Goes to the other termi
 // DIP SWITCHES FOR SETTING SHOT CLOCK DURATION
       int pin_DIP[]      = {2, 3, 4, 5, 6, 7, 8, 9};  // DIP Switch Pins
 const int gBounce        = 10;                        // Debounce Delay
+
+// LUCKY 13
+const int pin_Lucky      = 13;                        // Set to OUTPUT to use as ground reference
     
 
 
@@ -131,7 +134,8 @@ void SetupSerial() {
 void SetupPins() {
   pinMode     (pin_BuzzA,      OUTPUT);         // Buzzer pin [+]
   pinMode     (pin_BuzzB,      OUTPUT);         // Buzzer pin [-]
-  pinMode     (13,             OUTPUT);         // LED PIN
+  pinMode     (pin_Lucky,      OUTPUT);         // LED PIN
+  digitalWrite(pin_Lucky,      LOW   );         // Set to GROUND
   pinMode     (pin_ServoDir,   INPUT_PULLUP);   // Reverse servo directrion so it moves clockwise (if needed)
   for (int pin = 0; pin <= 7; pin = pin + 1){
     pinMode(pin_DIP[pin],      INPUT_PULLUP);   // Set each DIP switch pin to INPUT with pullup resistor enabled in turn
